@@ -1,2 +1,30 @@
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+export EC2_PRIVATE_KEY=$HOME/.ec2/pk-KWX5OM554TXYEMORMTTI6C22ONFQEG4T.pem
+export EC2_CERT=$HOME/.ec2/cert-KWX5OM554TXYEMORMTTI6C22ONFQEG4T.pem
+export EC2_HOME=$HOME/Library/ec2-api-tools-1.3-30349/
+
+# Ruby
+export LOCAL_GEM_PATH=$HOME/.gem/ruby/1.8/bin
+
+# Grails and Groovy
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+export GRAILS_HOME="/opt/local/share/java/grails"
+export GROOVY_HOME="/opt/local/share/java/groovy"
+
+# Oracle Instant Client
+export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2:$DYLD_LIBRARY_PATH"
+export SQLPATH=$DYLD_LIBRARY_PATH
+export TNS_ADMIN="/usr/local/oracle/network/admin"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export RC_ARCHS=i386
+
+# Grep and History
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='7;33'
+export GIT_EDITOR=mate
+export HISTCONTROL=erasedups
+export HISTSIZE=5000
+
+# Path
+export PATH=/opt/local/bin:/opt/local/sbin:$EC2_HOME/bin:LOCAL_GEM_PATH:/opt/flex_sdk_3/bin:$GROOVY_HOME/bin:$PATH

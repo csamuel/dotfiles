@@ -1,14 +1,16 @@
 [user]
-	name = Ryan Bates
-	email = ryan@railscasts.com
+	name = Chris Samuel
+	email = christopher.samuel@valtech.com
 [alias]
 	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	staged = diff --cached
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+	ui = auto
 [core]
-	excludesfile = /Users/rbates/.gitignore
-	editor = mate -w
-[apply]
-	whitespace = nowarn
+	legacyheaders = false
+	autocrlf = false
+[merge]
+	tool = opendiff

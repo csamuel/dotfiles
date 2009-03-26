@@ -1,5 +1,3 @@
-. ~/.zsh/aliases
-
 # changing directory to code project
 function c { cd ~/code/$1; }
 
@@ -13,3 +11,19 @@ function railsapp {
 
 # misc
 alias reload='. ~/.bash_profile'
+
+alias ll='ls -l'
+alias ls='ls --color=auto'
+alias cls=clear
+
+# servers
+alias dreamhost="ssh csamuel@itcannot.be"
+
+alias deva01="ssh dasadmin@pacdcdtadeva01.cable.comcast.com"
+alias deva03="ssh csamue4916c@pacdcdtadeva03.cable.comcast.com"
+alias deva04="ssh csamue4916c@pacdcdtadeva04.cable.comcast.com"
+
+alias stgrpt01="ssh csamue4916c@pasundtastgrpt1.cable.comcast.com"
+alias prdrpt01="ssh csamue4916c@pacdcdtaprdrpt1.cable.comcast.com"
+
+alias greg="ssh ghenge3254c@pacdcdtaprdrpt1.cable.comcast.com"
