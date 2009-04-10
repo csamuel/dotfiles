@@ -53,7 +53,8 @@ alias cls='clear'
 
 # servers
 alias dreamhost='ssh csamuel@itcannot.be'
-alias deva01='ssh dasadmin@pacdcdtadeva01.cable.comcast.com'
+alias deva01='ssh csamue4916c@pacdcdtadeva01.cable.comcast.com'
+alias deva02='ssh csamue4916c@pacdcdtadeva01.cable.comcast.com'
 alias deva03='ssh csamue4916c@pacdcdtadeva03.cable.comcast.com'
 alias deva04='ssh csamue4916c@pacdcdtadeva04.cable.comcast.com'
 alias stgrpt01='ssh csamue4916c@pasundtastgrpt1.cable.comcast.com'
