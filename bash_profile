@@ -19,3 +19,9 @@ function parse_git_branch () {
 PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(parse_git_branch)$ "
 PS2='> '
 PS4='+ '
+# -- start rip config -- #
+RIPDIR=/Users/csamuel/.rip
+RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
+PATH="$PATH:$RIPDIR/active/bin"
+export RIPDIR RUBYLIB PATH
+# -- end rip config -- #

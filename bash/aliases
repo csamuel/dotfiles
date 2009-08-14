@@ -31,6 +31,7 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gitlog='git log --pretty=oneline --abbrev-commit HEAD~10..HEAD'
  
 # rails
 alias sc='script/console'
@@ -54,7 +55,7 @@ alias cls='clear'
 # servers
 alias dreamhost='ssh csamuel@itcannot.be'
 alias deva01='ssh csamue4916c@pacdcdtadeva01.cable.comcast.com'
-alias deva02='ssh csamue4916c@pacdcdtadeva01.cable.comcast.com'
+alias deva02='ssh csamue4916c@pacdcdtadeva02.cable.comcast.com'
 alias deva03='ssh csamue4916c@pacdcdtadeva03.cable.comcast.com'
 alias deva04='ssh csamue4916c@pacdcdtadeva04.cable.comcast.com'
 alias stgrpt01='ssh csamue4916c@pasundtastgrpt1.cable.comcast.com'
