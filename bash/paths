@@ -38,5 +38,4 @@ export RIPDIR RUBYLIB PATH
 export EDITOR="mate -w"
 
 # Path
-export PATH=/opt/local/bin:/opt/local/sbin:$EC2_HOME/bin:LOCAL_GEM_PATH:/opt/flex_sdk_3/bin:$GROOVY_HOME/bin:$CATALINA_HOME/bin:$PATH
-
+export PATH=/opt/local/bin:/opt/local/sbin:$EC2_HOME/bin:LOCAL_GEM_PATH:/opt/flex_sdk_3/bin:$GROOVY_HOME/bin:$CATALINA_HOME/bin:$HOME/opt/local/bin:/opt/CollabNet_Subversion/bin:$HOME/.gem/ruby/1.8/bin:$PATH
