@@ -51,6 +51,9 @@ alias stgrpt01='ssh csamue4916c@pasundtastgrpt1.cable.comcast.com'
 alias prdrpt01='ssh csamue4916c@pacdcdtaprdrpt1.cable.comcast.com'
 alias greg='ssh ghenge3254c@pacdcdtaprdrpt1.cable.comcast.com'
 
+#dasadmin
+alias dasadmin='sudo -H -u dasadmin bash -l'
+
 # changing directory to code project
 function c { cd ~/code/$1; }
 
