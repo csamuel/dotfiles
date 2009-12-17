@@ -14,3 +14,6 @@
 	autocrlf = false
 [merge]
 	tool = opendiff
+[github]
+	user = csamuel
+	token = 598e102509d2d22357e6bb4697f684f9
