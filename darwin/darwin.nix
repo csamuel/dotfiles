@@ -14,7 +14,7 @@
 
   programs = {
     gnupg.agent.enable = true;
-    zsh.enable = true; # default shell on catalina
+    zsh.enable = true;
   };
 
   system.stateVersion = 4;
@@ -269,7 +269,7 @@
     # Show Library folder
     chflags nohidden ~/Library
 
-    # Following line should allow us to avoid a logout/login cycle
+    # Following line should allow us to avoid a logout/login cycle to see changes
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 }

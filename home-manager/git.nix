@@ -1,4 +1,5 @@
 { ... }:
+
 {
   home.file = {
     ".gitconfig".source = ../.config/git/.gitconfig;
