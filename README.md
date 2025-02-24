@@ -1,5 +1,7 @@
 # Dotfiles
 
+[![FlakeHub](https://img.shields.io/endpoint?url=https://flakehub.com/f/csamuel/dotfiles/badge)](https://flakehub.com/flake/csamuel/dotfiles)
+
 My WIP nix configuration for MacOS
 
 ## Prerequisites
