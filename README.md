@@ -14,10 +14,6 @@ My WIP nix configuration for MacOS
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-#### Rosetta 2 (Optional)
-
-`softwareupdate --install-rosetta --agree-to-license`
-
 #### Mac App Store
 
 Sign-in to Mac App Store with your Apple ID to install mas apps.
