@@ -265,6 +265,14 @@
     };
   };
 
+  # Disable skhd for now
+  # services.skhd = {
+  #   enable = true;
+  #   skhdConfig = ''
+  #     cmd - return : open --new -a ghostty.app
+  #   '';
+  # };
+
   system.activationScripts.extraActivation.text = ''
     # Show Library folder
     chflags nohidden ~/Library
