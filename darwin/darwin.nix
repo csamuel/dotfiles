@@ -150,6 +150,7 @@
       "slack-cli"
       "sloth"
       "spotify"
+      "syncthing"
       "ssh-config-editor"
       "the-unarchiver"
       "tidal"
