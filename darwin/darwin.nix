@@ -196,6 +196,7 @@
 
   system.defaults = {
     NSGlobalDomain = {
+      AppleInterfaceStyle = "Dark";
       NSWindowShouldDragOnGesture = true;
       NSAutomaticSpellingCorrectionEnabled = false;
       NSAutomaticQuoteSubstitutionEnabled = false;
