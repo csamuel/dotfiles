@@ -4,6 +4,8 @@
   environment.systemPackages = [
     pkgs.home-manager
     pkgs.sesh
+    pkgs.sketchybar
+    pkgs.sketchybar-app-font
     pkgs.zoxide
     pkgs.fzf
     pkgs.neovim
@@ -56,7 +58,7 @@
       "emacs"
       "fastfetch"
       "fd"
-      "FelixKratz/formulae/sketchybar"
+      # "FelixKratz/formulae/sketchybar"
       "ffmpeg"
       "foreman"
       "fzf"
@@ -103,10 +105,12 @@
     casks = [
       "1password"
       "1password-cli"
+      "aerospace"
       "alcove"
       "alfred"
       "amie"
       "android-file-transfer"
+      "balenaetcher"
       "bartender"
       "betterdisplay"
       "bitwarden"
@@ -135,6 +139,8 @@
       "miniconda"
       "miro"
       "monarch"
+      "navicat-for-postgresql"
+      "notion"
       "ngrok"
       "orion"
       "onyx"
@@ -173,16 +179,19 @@
       "homebrew/test-bot"
       "joshmedeski/sesh"
       "leg100/tap"
+      "nikitabobko/tap"
       "pulumi/tap"
       "sst/tap"
       "FelixKratz/formulae"
     ];
     masApps = {
       "DaisyDisk" = 411643860;
+      "Hyperspace" = 6739505345;
       "Ice Cubes" = 6444915884;
       "Ivory" = 6444602274;
       "Keka" = 470158793;
       "MediaInfo" = 510620098;
+      "Okta Verify" = 490179405;
       "Parcel" = 639968404;
       "Photomator" = 1444636541;
       "Pixelmator Pro" = 1289583905;
