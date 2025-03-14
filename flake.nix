@@ -45,11 +45,11 @@
     in
     {
       darwinConfigurations = {
-        # M2 Air
+        # M2 MacBook Air
         "higgins" = darwinSystem {
           user = "chris";
         };
-        # M1 Studio Ultra
+        # M1 Mac Studio Ultra
         "benson" = darwinSystem {
           user = "chris";
         };
@@ -58,10 +58,15 @@
           user = "chris.samuel";
           configs = [ ./darwin/hosts/spaceblack.nix ];
         };
-        # M4 Air
+        # M4 MacBook Air
         "dunston" = darwinSystem {
           user = "chris";
-          configs = [ ./darwin/hosts/dunston.nix ];
+          configs = [
+            ./darwin/audio.nix
+            ./darwin/gaming.nix
+            ./darwin/photography.nix
+            ./darwin/video.nix
+          ];
         };
       };
     };
