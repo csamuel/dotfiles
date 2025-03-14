@@ -10,8 +10,7 @@
   "labels": ["renovate"],
   "lockFileMaintenance": {
     "enabled": true,
-    "//": "Run on Sunday at midnight",
-    "schedule": ["0 0 * * 0"]
+    "schedule": ["every Sunday after 12am"]
   },
   "nix": {
     "enabled": true
