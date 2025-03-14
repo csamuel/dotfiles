@@ -1,4 +1,18 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":pinAllExceptPeerDependencies",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "labels": ["renovate"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "//": "Run on Sunday at midnight",
+    "schedule": ["0 0 * * 0"]
+  },
   "nix": {
     "enabled": true
   }
