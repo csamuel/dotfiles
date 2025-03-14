@@ -10,7 +10,7 @@
   "labels": ["renovate"],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["every Sunday at 12am"]
+    "schedule": ["* 0 * * 0"]
   },
   "nix": {
     "enabled": true
