@@ -1,0 +1,12 @@
+{
+  "languages": {
+    "Nix": {
+      "formatter": {
+        "external": {
+          "command": "nixfmt", // or "nixfmt"
+          "arguments": ["--quiet", "--"]
+        }
+      }
+    }
+  }
+}
