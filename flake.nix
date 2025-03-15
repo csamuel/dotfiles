@@ -35,6 +35,7 @@
             {
               _module.args = { inherit inputs; };
               home-manager = {
+                backupFileExtension = ".backup";
                 users.${user} = import ./home-manager;
               };
               users.users.${user}.home = "/Users/${user}";
