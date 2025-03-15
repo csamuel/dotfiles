@@ -4,6 +4,7 @@
   homebrew = {
     casks = [
       "crossover"
+      "shadow"
       "whisky"
     ];
     masApps = {
