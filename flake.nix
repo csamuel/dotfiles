@@ -49,6 +49,12 @@
         # M2 MacBook Air
         "higgins" = darwinSystem {
           user = "chris";
+          configs = [
+            ./darwin/audio.nix
+            ./darwin/gaming.nix
+            ./darwin/photography.nix
+            ./darwin/video.nix
+          ];
         };
         # M1 Mac Studio Ultra
         "benson" = darwinSystem {
