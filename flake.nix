@@ -59,6 +59,12 @@
         # M1 Mac Studio Ultra
         "benson" = darwinSystem {
           user = "chris";
+          configs = [
+            ./darwin/audio.nix
+            ./darwin/gaming.nix
+            ./darwin/photography.nix
+            ./darwin/video.nix
+          ];
         };
         # M4 MacBook Pro
         "spaceblack" = darwinSystem {
