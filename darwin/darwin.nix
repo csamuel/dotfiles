@@ -9,6 +9,7 @@
     pkgs.zoxide
     pkgs.fzf
     pkgs.neovim
+    pkgs.uv
   ];
 
   # Since we are using determinate nix distribution
@@ -35,6 +36,9 @@
     };
     brews = [
       "asitop"
+      "autoconf"
+      "autoconf-archive"
+      "automake"
       "aws-iam-authenticator"
       "aws-nuke"
       "awscli"
@@ -43,6 +47,7 @@
       "bartycrouch"
       "bento4"
       "btop"
+      "ccache"
       "cmake"
       "cocoapods"
       "composer"
@@ -59,7 +64,6 @@
       "emacs"
       "fastfetch"
       "fd"
-      # "FelixKratz/formulae/sketchybar"
       "ffmpeg"
       "foreman"
       "fzf"
@@ -82,10 +86,12 @@
       "lolcat"
       "mas"
       "minikube"
+      "nasm"
       "netcat"
       "ninja"
       "nvm"
       "pinentry-mac"
+      "pkg-config"
       "podman"
       "pulumi/tap/pulumi"
       "python@3.12"
