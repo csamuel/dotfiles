@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
+  system.primaryUser = user;
+
   environment.systemPackages = [
     pkgs.home-manager
     pkgs.sesh

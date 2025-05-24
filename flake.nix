@@ -28,12 +28,12 @@
           configs ? [ ],
         }:
         darwin.lib.darwinSystem {
+          specialArgs = { inherit user inputs; };
           system = arch;
           modules = [
             ./darwin/darwin.nix
             home-manager.darwinModules.home-manager
             {
-              _module.args = { inherit inputs; };
               home-manager = {
                 backupFileExtension = ".backup";
                 users.${user} = import ./home-manager;
