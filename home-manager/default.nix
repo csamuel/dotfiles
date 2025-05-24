@@ -84,7 +84,7 @@
     };
 
     vscode = {
-      enable = true;
+      enable = false;
     };
   };
 
