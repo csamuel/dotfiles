@@ -47,7 +47,7 @@
         gauth = "gcloud auth login --update-adc --brief";
         ll = "ls -l";
         t = "gittower";
-        switch = "darwin-rebuild switch --flake .";
+        switch = "sudo darwin-rebuild switch --flake .";
         update = "nix flake update";
       };
 
