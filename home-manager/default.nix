@@ -11,7 +11,7 @@
   xdg.enable = true;
 
   xdg.configFile."ghostty/config".source = ./../.config/ghostty/config;
-  xdg.configFile."zed/settings.json".source = ./../.config/zed/settings.json;
+  xdg.configFile."zed/settings.json.backup".source = ./../.config/zed/settings.json;
 
   home = {
     stateVersion = "24.05";
