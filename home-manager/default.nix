@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
       cmatrix
       nixfmt-rfc-style
       nil
+      tree
     ];
   };
 
@@ -50,16 +51,14 @@
         update = "nix flake update";
       };
 
-      initExtraFirst = ''
+      initContent = lib.mkBefore ''
         # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
         # Initialization code that may require console input (password prompts, [y/n]
         # confirmations, etc.) must go above this block; everything else may go below.
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
-      '';
 
-      initExtra = ''
         # fzf
         source <(fzf --zsh)
 
@@ -70,6 +69,7 @@
         [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
         # [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
       '';
+
       oh-my-zsh = {
         enable = true;
         plugins = [
