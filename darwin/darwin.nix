@@ -108,8 +108,6 @@
       "1password-cli"
       # "aerospace"
       "alcove"
-      "alfred"
-      "amie"
       "android-file-transfer"
       "balenaetcher"
       "bartender"
