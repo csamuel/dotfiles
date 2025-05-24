@@ -21,6 +21,13 @@
       ...
     }@inputs:
     let
+      mediaConfigs = [
+        ./darwin/audio.nix
+        ./darwin/gaming.nix
+        ./darwin/photography.nix
+        ./darwin/video.nix
+      ];
+
       darwinSystem =
         {
           user,
@@ -49,22 +56,12 @@
         # M2 MacBook Air
         "higgins" = darwinSystem {
           user = "chris";
-          configs = [
-            ./darwin/audio.nix
-            ./darwin/gaming.nix
-            ./darwin/photography.nix
-            ./darwin/video.nix
-          ];
+          configs = mediaConfigs;
         };
         # M1 Mac Studio Ultra
         "benson" = darwinSystem {
           user = "chris";
-          configs = [
-            ./darwin/audio.nix
-            ./darwin/gaming.nix
-            ./darwin/photography.nix
-            ./darwin/video.nix
-          ];
+          configs = mediaConfigs;
         };
         # M4 MacBook Pro
         "spaceblack" = darwinSystem {
@@ -74,12 +71,7 @@
         # M4 MacBook Air
         "dunston" = darwinSystem {
           user = "chris";
-          configs = [
-            ./darwin/audio.nix
-            ./darwin/gaming.nix
-            ./darwin/photography.nix
-            ./darwin/video.nix
-          ];
+          configs = mediaConfigs;
         };
       };
     };
