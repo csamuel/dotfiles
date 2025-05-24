@@ -106,7 +106,7 @@
     casks = [
       "1password"
       "1password-cli"
-      "aerospace"
+      # "aerospace"
       "alcove"
       "alfred"
       "amie"
