@@ -4,6 +4,8 @@
   homebrew = {
     casks = [
       "makemkv"
+      "mkvtoolnix"
+      "topaz-video-ai"
     ];
     masApps = {
       "Compressor" = 424390742;
