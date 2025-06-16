@@ -3,16 +3,7 @@
 {
   system.primaryUser = user;
 
-  environment.systemPackages = [
-    pkgs.home-manager
-    pkgs.sesh
-    pkgs.sketchybar
-    pkgs.sketchybar-app-font
-    pkgs.zoxide
-    pkgs.fzf
-    pkgs.neovim
-    pkgs.uv
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   # Since we are using determinate nix distribution
   nix.enable = false;
@@ -24,9 +15,79 @@
 
   system.stateVersion = 4;
 
-  fonts.packages = [
-    pkgs.atkinson-hyperlegible
-    pkgs.jetbrains-mono
+  environment.systemPackages = with pkgs; [
+    asitop
+    autoconf
+    autoconf-archive
+    automake
+    aws-nuke
+    aws-iam-authenticator
+    awscli2
+    btop
+    cmake
+    ccache
+    cocoapods
+    deno
+    direnv
+    doctl
+    doggo
+    duckdb
+    duf
+    dust
+    eksctl
+    emacs
+    fastfetch
+    fd
+    ffmpeg
+    foreman
+    fzf
+    gh
+    glab
+    gnupg
+    go
+    google-cloud-sdk
+    k9s
+    kubernetes-helm
+    heroku
+    home-manager
+    htop
+    iftop
+    iperf3
+    jq
+    kind
+    lolcat
+    neovim
+    minikube
+    nasm
+    netcat
+    ninja
+    pinentry_mac
+    podman
+    pkg-config
+    pulumi
+    python313
+    ripgrep
+    rbenv
+    qemu
+    qt6.full
+    sesh
+    sketchybar
+    sketchybar-app-font
+    socat
+    terraform
+    tmux
+    ugrep
+    unzip
+    uv
+    vim
+    watchman
+    yarn
+    zoxide
+  ];
+
+  fonts.packages = with pkgs; [
+    atkinson-hyperlegible
+    jetbrains-mono
   ];
 
   homebrew = {
@@ -37,84 +98,15 @@
       upgrade = true;
     };
     brews = [
-      "asitop"
-      "autoconf"
-      "autoconf-archive"
-      "automake"
-      "aws-iam-authenticator"
-      "aws-nuke"
-      "awscli"
       "azure-cli"
       "azure/functions/azure-functions-core-tools@4"
-      "bartycrouch"
-      "bento4"
-      "btop"
-      "ccache"
-      "cmake"
-      "cocoapods"
-      "composer"
-      "datasette"
-      "deno"
-      "derailed/k9s/k9s"
-      "direnv"
-      "doctl"
-      "doggo"
-      "duckdb"
-      "duf"
-      "dust"
-      "eksctl"
-      "emacs"
-      "fastfetch"
-      "fd"
-      "ffmpeg"
-      "foreman"
-      "fzf"
-      "gh"
-      "glab"
-      "gnupg"
-      "go"
-      "graphviz"
-      "hashicorp/tap/consul-k8s"
-      "hashicorp/tap/terraform"
-      "helm"
-      "heroku/brew/heroku"
-      "htop"
-      "iftop"
-      "iperf3"
-      "joshmedeski/sesh/sesh"
-      "jq"
-      "kind"
-      "leg100/tap/pug"
-      "lolcat"
-      "mas"
-      "minikube"
-      "nasm"
-      "netcat"
-      "ninja"
       "nvm"
-      "pinentry-mac"
-      "pkg-config"
-      "podman"
-      "pulumi/tap/pulumi"
-      "python@3.12"
-      "qemu"
-      "qt"
-      "rbenv"
-      "redis"
-      "ripgrep"
-      "rover"
-      "socat"
+      "pug"
       "sst/tap/sst"
-      "ugrep"
-      "unzip"
-      "vim"
-      "watchman"
-      "yarn"
     ];
     casks = [
       "1password"
       "1password-cli"
-      # "aerospace"
       "alcove"
       "affinity-photo"
       "android-file-transfer"
@@ -122,12 +114,14 @@
       "bartender"
       "betterdisplay"
       "bitwarden"
+      "claude"
       "cleanshot"
       "crystalfetch"
       "cursor"
       "discord"
       "docker"
       "dropbox"
+      "elgato-stream-deck"
       "expo-orbit"
       "figma"
       "firefox"
@@ -138,7 +132,6 @@
       "ghostty"
       "gitkraken-cli"
       "google-chrome"
-      "google-cloud-sdk"
       "granola"
       "legcord"
       "iina"
@@ -150,7 +143,6 @@
       "miniconda"
       "miro"
       "monarch"
-      "navicat-for-postgresql"
       "notion"
       "notion-calendar"
       "ngrok"
@@ -184,16 +176,7 @@
     ];
     taps = [
       "azure/functions"
-      "derailed/k9s"
-      "hashicorp/tap"
-      "heroku/brew"
-      "homebrew/bundle"
-      "homebrew/services"
       "homebrew/test-bot"
-      "joshmedeski/sesh"
-      "leg100/tap"
-      "nikitabobko/tap"
-      "pulumi/tap"
       "sst/tap"
       "FelixKratz/formulae"
     ];
