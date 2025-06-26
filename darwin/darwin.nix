@@ -98,10 +98,7 @@
       upgrade = true;
     };
     brews = [
-      "azure-cli"
-      "azure/functions/azure-functions-core-tools@4"
       "nvm"
-      "pug"
       "sst/tap/sst"
     ];
     casks = [
