@@ -57,11 +57,13 @@
 [user]
   email = csamuel@gmail.com
   name = Chris Samuel
-  signingkey = B32458C0E2FCBA6A
+  signingkey = 10FFA75D6D24DB15
 [commit]
   gpgsign = true
 [includeIf "gitdir:~/src/bestow/"]
   path = ~/src/bestow/.gitconfig
+[includeIf "gitdir:~/src/bevel/"]
+  path = ~/src/bevel/.gitconfig
 [github]
   user = csamuel
 [hub]
