@@ -100,6 +100,7 @@
       "pulumi"
       "nvm"
       "sst/tap/sst"
+      "sst/tap/opencode"
     ];
     casks = [
       "1password"
