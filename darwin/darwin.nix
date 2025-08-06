@@ -64,7 +64,6 @@
     pinentry_mac
     podman
     pkg-config
-    pulumi
     python313
     ripgrep
     rbenv
@@ -98,6 +97,7 @@
       upgrade = true;
     };
     brews = [
+      "pulumi"
       "nvm"
       "sst/tap/sst"
     ];
