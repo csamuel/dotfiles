@@ -4,6 +4,8 @@
   added = green
   changed = yellow
   untracked = red
+[core]
+  editor = nvim
 [credential]
   helper = osxkeychain
 [rerere]
