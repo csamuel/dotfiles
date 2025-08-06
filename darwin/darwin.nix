@@ -68,7 +68,6 @@
     ripgrep
     rbenv
     qemu
-    qt6.full
     sesh
     sketchybar
     sketchybar-app-font
