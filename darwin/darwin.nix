@@ -80,6 +80,7 @@
     vim
     watchman
     yarn
+    zellij
     zoxide
   ];
 
