@@ -150,7 +150,6 @@
       "raycast"
       "reactotron"
       "rectangle-pro"
-      "retroarch-metal"
       "setapp"
       "signal"
       "slack"
