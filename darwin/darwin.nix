@@ -115,7 +115,7 @@
       "crystalfetch"
       "cursor"
       "discord"
-      "docker"
+      "docker-desktop"
       "dropbox"
       "elgato-stream-deck"
       "expo-orbit"
