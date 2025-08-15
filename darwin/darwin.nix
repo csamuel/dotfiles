@@ -97,6 +97,7 @@
       upgrade = true;
     };
     brews = [
+      "gemini-cli"
       "pulumi"
       "nvm"
       "sst/tap/sst"
