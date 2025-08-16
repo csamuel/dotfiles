@@ -32,4 +32,6 @@ Install Nix using [Determinate Systems Installer](https://github.com/Determinate
 
 ## Update
 
-`darwin-rebuild switch --flake .#<host_name>`
+`sudo darwin-rebuild switch --flake .#<host_name>`
+
+
