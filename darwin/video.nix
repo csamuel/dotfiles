@@ -2,9 +2,11 @@
 
 {
   homebrew = {
+    brews = [
+      "mkvtoolnix"
+    ];
     casks = [
       "makemkv"
-      "mkvtoolnix"
       "topaz-video-ai"
     ];
     masApps = {
