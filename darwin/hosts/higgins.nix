@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  imports = [
-    ../audio.nix
-    ../gaming.nix
-    ../photography.nix
-    ../video.nix
-  ];
+  profiles = {
+    audio.enable = true;
+    gaming.enable = true;
+    photography.enable = true;
+    video.enable = true;
+  };
 }
 
 

@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, config, ... }:
 
-{
+lib.mkIf config.profiles.gaming.enable {
   homebrew = {
     casks = [
       "crossover"

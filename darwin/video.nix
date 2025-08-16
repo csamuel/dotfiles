@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, config, ... }:
 
-{
+lib.mkIf config.profiles.video.enable {
   homebrew = {
     brews = [
       "mkvtoolnix"
