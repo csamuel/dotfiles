@@ -1,0 +1,74 @@
+{ pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    asitop
+    autoconf
+    autoconf-archive
+    automake
+    aws-nuke
+    aws-iam-authenticator
+    awscli2
+    btop
+    cmake
+    ccache
+    cocoapods
+    deno
+    direnv
+    doctl
+    doggo
+    duckdb
+    duf
+    dust
+    eksctl
+    emacs
+    fastfetch
+    fd
+    ffmpeg
+    foreman
+    fzf
+    gh
+    glab
+    gnupg
+    go
+    google-cloud-sdk
+    k9s
+    kubernetes-helm
+    heroku
+    home-manager
+    htop
+    iftop
+    iperf3
+    jq
+    kind
+    lolcat
+    neovim
+    minikube
+    nasm
+    netcat
+    ninja
+    pinentry_mac
+    podman
+    pkg-config
+    python313
+    ripgrep
+    rbenv
+    qemu
+    sesh
+    sketchybar
+    sketchybar-app-font
+    socat
+    terraform
+    tmux
+    ugrep
+    unzip
+    uv
+    vim
+    watchman
+    yarn
+    zellij
+    zoxide
+  ];
+}
+
+
