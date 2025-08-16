@@ -6,8 +6,6 @@
     ./tmux.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   xdg.enable = true;
 
   xdg.configFile."ghostty/config".source = ./../.config/ghostty/config;
