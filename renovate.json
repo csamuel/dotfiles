@@ -10,7 +10,9 @@
   "labels": ["renovate"],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["* 0 * * 0"]
+    "description": "Every Monday at 2am (CT)",
+    "schedule": ["* 2 * * 1"],
+    "timezone": "America/Chicago"
   },
   "nix": {
     "enabled": true
