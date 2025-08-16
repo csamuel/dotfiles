@@ -7,8 +7,6 @@
     ../photography.nix
     ../video.nix
   ];
-
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-  ];
 }
+
+
