@@ -26,7 +26,7 @@
     fd
     ffmpeg
     foreman
-    fzf
+    # fzf
     gh
     glab
     gnupg
@@ -67,6 +67,6 @@
     watchman
     yarn
     zellij
-    zoxide
+    # zoxide
   ];
 }

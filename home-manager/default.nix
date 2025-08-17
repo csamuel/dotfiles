@@ -27,6 +27,12 @@
   };
 
   programs = {
+    zoxide.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh = {
       enable = true;
       plugins = [
@@ -57,12 +63,6 @@
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
-
-        # fzf
-        source <(fzf --zsh)
-
-        # zoxide
-        eval "$(zoxide init zsh)"
 
         export NVM_DIR="$HOME/.nvm"
         [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
