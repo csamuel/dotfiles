@@ -55,7 +55,6 @@
             pkgs.treefmt
             pkgs.nixfmt-rfc-style
             pkgs.nixd
-            pkgs.nil
             pkgs.direnv
             pkgs.git
           ];
