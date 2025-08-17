@@ -19,6 +19,8 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Check formatting
         run: nix develop -c treefmt --ci
+      - name: Deadnix (fail on unused Nix)
+        run: nix run nixpkgs#deadnix -- --fail
 
   flake-check:
     runs-on: macos-15
