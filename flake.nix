@@ -79,6 +79,7 @@
         in
         pkgs.mkShell {
           packages = [
+            pkgs.treefmt
             pkgs.nixfmt-rfc-style
             pkgs.nixd
             pkgs.nil
