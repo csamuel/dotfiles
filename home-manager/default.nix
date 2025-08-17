@@ -86,5 +86,5 @@
     };
   };
 
-  services.ollama.enable = true;
+  # Optional services like ollama can be enabled per-host via nix-darwin host modules
 }
