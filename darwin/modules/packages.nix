@@ -26,7 +26,6 @@
     fd
     ffmpeg
     foreman
-    # fzf
     gh
     glab
     gnupg
