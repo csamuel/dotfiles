@@ -41,7 +41,8 @@
               users.users.${user}.home = "/Users/${user}";
               nix.settings.trusted-users = [ user ];
             }
-          ] ++ configs;
+          ]
+          ++ configs;
         };
     in
     {
@@ -67,5 +68,40 @@
           configs = [ ./darwin/hosts/dunston.nix ];
         };
       };
+
+      # flake extras
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+
+      devShells.aarch64-darwin.default =
+        let
+          system = "aarch64-darwin";
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        pkgs.mkShell {
+          packages = [
+            pkgs.nixfmt-rfc-style
+            pkgs.nixd
+            pkgs.nil
+            pkgs.direnv
+            pkgs.git
+            pkgs.home-manager
+            inputs.darwin.packages.${system}.darwin-rebuild
+          ];
+        };
+
+      # evaluation-only syntax checks to avoid building macOS system
+      checks.aarch64-darwin.syntax =
+        let
+          system = "aarch64-darwin";
+          pkgs = nixpkgs.legacyPackages.${system};
+          isDarwinModule = builtins.isFunction (import ./darwin/darwin.nix);
+          isHomeModule = builtins.isFunction (import ./home-manager/default.nix);
+        in
+        (
+          assert isDarwinModule && isHomeModule;
+          pkgs.runCommand "syntax-ok" { } ''
+            echo ok > $out
+          ''
+        );
     };
 }

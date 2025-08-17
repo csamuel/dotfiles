@@ -8,5 +8,3 @@
     video.enable = lib.mkEnableOption "Enable video-related apps and tooling";
   };
 }
-
-

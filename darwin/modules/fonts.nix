@@ -6,5 +6,3 @@
     jetbrains-mono
   ];
 }
-
-

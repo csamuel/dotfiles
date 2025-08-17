@@ -47,6 +47,7 @@
         t = "gittower";
         switch = "sudo darwin-rebuild switch --flake .";
         update = "nix flake update";
+        j = "z"; # because of autojump muscle memory
       };
 
       initContent = lib.mkBefore ''

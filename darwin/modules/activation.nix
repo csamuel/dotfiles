@@ -10,5 +10,3 @@
     # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 }
-
-

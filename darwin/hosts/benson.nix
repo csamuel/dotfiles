@@ -8,5 +8,3 @@
     video.enable = true;
   };
 }
-
-
