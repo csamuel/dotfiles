@@ -25,7 +25,7 @@ jobs:
         run: nix run nixpkgs#deadnix -- --fail
 
   flake-check:
-    runs-on: macos-15
+    runs-on: ubuntu-24.04
     needs: lint
     steps:
       - uses: actions/checkout@v5
