@@ -44,6 +44,21 @@
           ]
           ++ configs;
         };
+      # Helper to build the same dev shell for any target system
+      devShellFor = system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        pkgs.mkShell {
+          packages = [
+            pkgs.treefmt
+            pkgs.nixfmt-rfc-style
+            pkgs.nixd
+            pkgs.nil
+            pkgs.direnv
+            pkgs.git
+          ];
+        };
     in
     {
       darwinConfigurations = {
@@ -69,23 +84,11 @@
         };
       };
 
-      # flake extras
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
 
-      devShells.aarch64-darwin.default =
-        let
-          system = "aarch64-darwin";
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        pkgs.mkShell {
-          packages = [
-            pkgs.treefmt
-            pkgs.nixfmt-rfc-style
-            pkgs.nixd
-            pkgs.nil
-            pkgs.direnv
-            pkgs.git
-          ];
-        };
+      # For CI lint on linux runners
+      devShells.x86_64-linux.default = devShellFor "x86_64-linux";
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }
