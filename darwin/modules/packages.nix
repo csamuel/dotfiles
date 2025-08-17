@@ -67,6 +67,5 @@
     watchman
     yarn
     zellij
-    # zoxide
   ];
 }
