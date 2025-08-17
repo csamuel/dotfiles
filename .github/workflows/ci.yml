@@ -2,6 +2,8 @@ name: CI
 
 on:
   pull_request:
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -23,7 +25,7 @@ jobs:
         run: nix run nixpkgs#deadnix -- --fail
 
   flake-check:
-    runs-on: macos-15
+    runs-on: ubuntu-24.04
     needs: lint
     steps:
       - uses: actions/checkout@v5
@@ -47,5 +49,20 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Evaluate toplevel drv for ${{ matrix.host }}
         run: nix eval --raw .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel.drvPath
+
+  build-hosts:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: macos-15
+    needs: eval-hosts
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [higgins, benson, spaceblack, dunston]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
+      - name: Build toplevel for ${{ matrix.host }}
+        run: nix build --keep-going --print-build-logs .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel
 
 
