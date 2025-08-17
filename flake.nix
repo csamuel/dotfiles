@@ -85,24 +85,7 @@
             pkgs.nil
             pkgs.direnv
             pkgs.git
-            pkgs.home-manager
-            inputs.darwin.packages.${system}.darwin-rebuild
           ];
         };
-
-      # evaluation-only syntax checks to avoid building macOS system
-      checks.aarch64-darwin.syntax =
-        let
-          system = "aarch64-darwin";
-          pkgs = nixpkgs.legacyPackages.${system};
-          isDarwinModule = builtins.isFunction (import ./darwin/darwin.nix);
-          isHomeModule = builtins.isFunction (import ./home-manager/default.nix);
-        in
-        (
-          assert isDarwinModule && isHomeModule;
-          pkgs.runCommand "syntax-ok" { } ''
-            echo ok > $out
-          ''
-        );
     };
 }

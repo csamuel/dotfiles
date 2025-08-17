@@ -36,11 +36,12 @@ jobs:
     runs-on: macos-15
     needs: flake-check
     strategy:
+      fail-fast: false
       matrix:
         host: [higgins, benson, spaceblack, dunston]
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v19  
+      - uses: DeterminateSystems/nix-installer-action@v19
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Evaluate toplevel drv for ${{ matrix.host }}
         run: nix eval --raw .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel.drvPath
