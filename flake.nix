@@ -45,7 +45,8 @@
           ++ configs;
         };
       # Helper to build the same dev shell for any target system
-      devShellFor = system:
+      devShellFor =
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
