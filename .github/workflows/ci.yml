@@ -14,7 +14,7 @@ jobs:
   lint:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Check formatting
@@ -26,7 +26,7 @@ jobs:
     runs-on: macos-15
     needs: lint
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Show flake outputs
@@ -42,7 +42,7 @@ jobs:
       matrix:
         host: [higgins, benson, spaceblack, dunston]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Evaluate toplevel drv for ${{ matrix.host }}
