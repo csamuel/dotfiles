@@ -100,7 +100,6 @@
       "Photomator" = 1444636541;
       "Pixelmator Pro" = 1289583905;
       "Prime Video" = 545519333;
-      "Raw Convertor" = 1598580439;
       "Screens 5" = 1663047912;
       "Tailscale" = 1475387142;
       "WireGuard" = 1451685025;
