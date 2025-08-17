@@ -21,13 +21,6 @@
       ...
     }@inputs:
     let
-      mediaConfigs = [
-        ./darwin/audio.nix
-        ./darwin/gaming.nix
-        ./darwin/photography.nix
-        ./darwin/video.nix
-      ];
-
       darwinSystem =
         {
           user,
@@ -48,7 +41,23 @@
               users.users.${user}.home = "/Users/${user}";
               nix.settings.trusted-users = [ user ];
             }
-          ] ++ configs;
+          ]
+          ++ configs;
+        };
+      # Helper to build the same dev shell for any target system
+      devShellFor =
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        pkgs.mkShell {
+          packages = with pkgs; [
+            treefmt
+            nixfmt-rfc-style
+            nixd
+            direnv
+            git
+          ];
         };
     in
     {
@@ -56,12 +65,12 @@
         # M2 MacBook Air
         "higgins" = darwinSystem {
           user = "chris";
-          configs = mediaConfigs;
+          configs = [ ./darwin/hosts/higgins.nix ];
         };
         # M1 Mac Studio Ultra
         "benson" = darwinSystem {
           user = "chris";
-          configs = mediaConfigs;
+          configs = [ ./darwin/hosts/benson.nix ];
         };
         # M4 MacBook Pro
         "spaceblack" = darwinSystem {
@@ -71,8 +80,15 @@
         # M4 MacBook Air
         "dunston" = darwinSystem {
           user = "chris";
-          configs = mediaConfigs;
+          configs = [ ./darwin/hosts/dunston.nix ];
         };
       };
+
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
+
+      # For CI lint on linux runners
+      devShells.x86_64-linux.default = devShellFor "x86_64-linux";
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
     };
 }

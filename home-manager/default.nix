@@ -6,8 +6,6 @@
     ./tmux.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   xdg.enable = true;
 
   xdg.configFile."ghostty/config".source = ./../.config/ghostty/config;
@@ -29,6 +27,12 @@
   };
 
   programs = {
+    zoxide.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh = {
       enable = true;
       plugins = [
@@ -49,6 +53,7 @@
         t = "gittower";
         switch = "sudo darwin-rebuild switch --flake .";
         update = "nix flake update";
+        j = "z"; # autojump muscle memory
       };
 
       initContent = lib.mkBefore ''
@@ -58,12 +63,6 @@
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
-
-        # fzf
-        source <(fzf --zsh)
-
-        # zoxide
-        eval "$(zoxide init zsh)"
 
         export NVM_DIR="$HOME/.nvm"
         [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
@@ -88,5 +87,5 @@
     };
   };
 
-  services.ollama.enable = true;
+  # Optional services like ollama can be enabled per-host via nix-darwin host modules
 }

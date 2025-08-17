@@ -1,0 +1,5 @@
+[formatter.nix]
+command = "nixfmt"
+includes = ["*.nix", "**/*.nix"]
+
+

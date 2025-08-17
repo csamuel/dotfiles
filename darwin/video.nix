@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, config, ... }:
 
-{
+lib.mkIf config.profiles.video.enable {
   homebrew = {
     brews = [
       "mkvtoolnix"
@@ -12,7 +12,7 @@
     masApps = {
       "Compressor" = 424390742;
       "Final Cut Pro" = 424389933;
-      "Raw Convertor" = 1598580439;
+      "RAW Converter" = 1598580439;
     };
   };
 }

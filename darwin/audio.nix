@@ -1,6 +1,6 @@
-{ ... }:
+{ lib, config, ... }:
 
-{
+lib.mkIf config.profiles.audio.enable {
   homebrew = {
     casks = [
       "ableton-live-suite"

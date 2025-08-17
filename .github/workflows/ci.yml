@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
+      - name: Check formatting
+        run: nix develop -c treefmt --ci
+      - name: Deadnix (fail on unused Nix)
+        run: nix run nixpkgs#deadnix -- --fail
+
+  flake-check:
+    runs-on: macos-15
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
+      - name: Show flake outputs
+        run: nix flake show
+      - name: Flake checks (no system builds)
+        run: nix flake check --keep-going --print-build-logs
+
+  eval-hosts:
+    runs-on: macos-15
+    needs: flake-check
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [higgins, benson, spaceblack, dunston]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
+      - name: Evaluate toplevel drv for ${{ matrix.host }}
+        run: nix eval --raw .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel.drvPath
+
+

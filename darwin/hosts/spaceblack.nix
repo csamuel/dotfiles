@@ -1,7 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-  ];
+  fonts.packages = lib.mkAfter [ pkgs.nerd-fonts.fira-code ];
 }

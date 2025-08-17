@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ ... }:
 
 {
   profiles = {
@@ -7,6 +7,4 @@
     photography.enable = true;
     video.enable = true;
   };
-
-  fonts.packages = lib.mkAfter [ pkgs.nerd-fonts.fira-code ];
 }
