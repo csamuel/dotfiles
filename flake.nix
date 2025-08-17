@@ -51,12 +51,12 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         pkgs.mkShell {
-          packages = [
-            pkgs.treefmt
-            pkgs.nixfmt-rfc-style
-            pkgs.nixd
-            pkgs.direnv
-            pkgs.git
+          packages = with pkgs; [
+            treefmt
+            nixfmt-rfc-style
+            nixd
+            direnv
+            git
           ];
         };
     in
