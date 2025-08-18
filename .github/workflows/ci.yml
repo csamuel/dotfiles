@@ -59,7 +59,7 @@ jobs:
       matrix:
         host: [higgins, benson, spaceblack, dunston]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Build toplevel for ${{ matrix.host }}
