@@ -64,7 +64,6 @@
     uv
     vim
     watchman
-    yarn
     zellij
   ];
 }
