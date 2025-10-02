@@ -9,7 +9,7 @@
       upgrade = true;
     };
     brews = [
-      "gemini-cli"
+      "mcp-toolbox"
       "pulumi"
       "nvm"
       "sst/tap/sst"
@@ -41,9 +41,9 @@
       "font-hack-nerd-font"
       "font-meslo-lg-nerd-font"
       "ghostty"
+      "gitkraken"
       "gitkraken-cli"
       "google-chrome"
-      "granola"
       "iina"
       "inkscape"
       "istat-menus"
@@ -56,14 +56,15 @@
       "notion"
       "notion-calendar"
       "ngrok"
-      "orion"
       "onyx"
       "orbstack"
+      "orion"
       "pgadmin4"
       "postman"
       "raycast"
       "reactotron"
       "rectangle-pro"
+      "redis-insight"
       "setapp"
       "signal"
       "slack"
@@ -99,7 +100,6 @@
       "Parcel" = 639968404;
       "Photomator" = 1444636541;
       "Pixelmator Pro" = 1289583905;
-      "Prime Video" = 545519333;
       "Screens 5" = 1663047912;
       "Tailscale" = 1475387142;
       "WireGuard" = 1451685025;
