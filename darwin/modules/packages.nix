@@ -9,6 +9,7 @@
     aws-nuke
     aws-iam-authenticator
     awscli2
+    biome
     btop
     cmake
     ccache
