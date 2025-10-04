@@ -11,6 +11,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      agenix,
       ...
     }@inputs:
     let
@@ -33,6 +38,7 @@
           modules = [
             ./darwin/darwin.nix
             home-manager.darwinModules.home-manager
+            agenix.darwinModules.default
             {
               home-manager = {
                 backupFileExtension = ".backup";
