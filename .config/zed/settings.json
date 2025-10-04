@@ -8,6 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "icon_theme": "VSCode Icons (Dark)",
+{
   "assistant": {
     "default_model": {
       "provider": "google",
@@ -16,7 +17,8 @@
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "version": "2"
-  },
+  }
+}
   "features": {
     "edit_prediction_provider": "zed"
   },
