@@ -11,6 +11,7 @@
     awscli2
     biome
     btop
+    bun
     cmake
     ccache
     cocoapods
