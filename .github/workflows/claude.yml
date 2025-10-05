@@ -56,7 +56,12 @@ jobs:
             - Keep configurations modular and well-documented
             - Follow the existing directory structure
 
-            Now, please address the following request: ${{ github.event.comment.body || github.event.issue.body || github.event.review.body }}
+            ${{
+              github.event_name == 'issue_comment' && format('ISSUE TITLE: {0}\n\nISSUE BODY:\n{1}\n\nCOMMENT:\n{2}', github.event.issue.title, github.event.issue.body, github.event.comment.body) ||
+              github.event_name == 'pull_request_review_comment' && format('PR TITLE: {0}\n\nCOMMENT:\n{1}', github.event.pull_request.title, github.event.comment.body) ||
+              github.event_name == 'pull_request_review' && format('PR TITLE: {0}\n\nREVIEW:\n{1}', github.event.pull_request.title, github.event.review.body) ||
+              github.event_name == 'issues' && format('ISSUE TITLE: {0}\n\nISSUE BODY:\n{1}', github.event.issue.title, github.event.issue.body)
+            }}
 
           # Allow Claude to use necessary tools for managing this repository
           claude_args: | 
