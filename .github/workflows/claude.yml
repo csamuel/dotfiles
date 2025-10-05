@@ -20,10 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
-      issues: read
+      pull-requests: write  # Required for Claude to comment on PRs
+      issues: write  # Required for Claude to comment on issues
       id-token: write
-      actions: read # Required for Claude to read CI results on PRs
+      actions: read  # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -40,7 +40,6 @@ jobs:
           additional_permissions: |
             actions: read
 
-          # Custom prompt for dotfiles repository
           prompt: |
             You are helping maintain a dotfiles repository. This repository contains:
 
@@ -50,6 +49,7 @@ jobs:
             - GitHub Actions workflows
 
             When working on this codebase:
+
             - Use the repository's AGENTS.md for guidance on style and conventions.
             - Maintain consistency with existing Nix style and patterns
             - Test any Nix changes for syntax validity
