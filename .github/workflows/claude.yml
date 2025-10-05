@@ -26,7 +26,7 @@ jobs:
       actions: read # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
@@ -40,11 +40,26 @@ jobs:
           additional_permissions: |
             actions: read
 
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
+          # Custom prompt for dotfiles repository
+          prompt: |
+            You are helping maintain a dotfiles repository. This repository contains:
 
-          # Optional: Add claude_args to customize behavior and configuration
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          # claude_args: '--allowed-tools Bash(gh pr:*)'
+            - Nix configuration files using flakes, nix-darwin, and home-manager
+            - Shell configurations (zsh, bash)
+            - Development tool configurations
+            - GitHub Actions workflows
+
+            When working on this codebase:
+            - Use the repository's AGENTS.md for guidance on style and conventions.
+            - Maintain consistency with existing Nix style and patterns
+            - Test any Nix changes for syntax validity
+            - Keep configurations modular and well-documented
+            - Follow the existing directory structure
+
+            Now, please address the following request: ${{ github.event.comment.body || github.event.issue.body || github.event.review.body }}
+
+          # Allow Claude to use necessary tools for managing this repository
+          claude_args: | 
+            --allowed-tools Bash,Read,Write,Edit,Glob,Grep
+            --model claude-sonnet-4-5-20250929
 
