@@ -64,8 +64,13 @@
         switch = "sudo darwin-rebuild switch --flake .";
         update = "nix flake update";
         j = "z"; # autojump muscle memory
+        # https://github.com/DeterminateSystems/nix-installer/issues/1479
+        kick-nix = ''
+          sudo launchctl kickstart -k system/systems.determinate.nix-store && \
+          sudo launchctl kickstart -k system/systems.determinate.nix-daemon && \
+          sudo launchctl kickstart -k system/systems.determinate.nix-installer.nix-hook
+        '';
       };
-
       initContent = lib.mkBefore ''
         # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
         # Initialization code that may require console input (password prompts, [y/n]
