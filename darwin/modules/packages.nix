@@ -42,6 +42,7 @@
     iperf3
     jq
     kind
+    lazygit
     lolcat
     neovim
     minikube
