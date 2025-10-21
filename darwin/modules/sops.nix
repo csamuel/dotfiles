@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   # System-level sops configuration for nix-darwin
@@ -14,7 +14,7 @@
   # Configure sops defaults
   # Uncomment and configure when you have keys set up:
   # sops.defaultSopsFile = ../secrets/secrets.yaml;
-  # sops.age.keyFile = "/Users/${config.users.users.${config.networking.hostName}.name}/.config/sops/age/keys.txt";
+  # sops.age.keyFile = "/Users/${user}/.config/sops/age/keys.txt";
 
   # Example system-level secret (uncomment to use):
   # sops.secrets.example-secret = {
