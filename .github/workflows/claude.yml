@@ -50,11 +50,21 @@ jobs:
 
             When working on this codebase:
 
-            - Use the repository's AGENTS.md for guidance on style and conventions.
+            - Use the repository's CLAUDE.md for guidance on style and conventions.
             - Maintain consistency with existing Nix style and patterns
             - Test any Nix changes for syntax validity
             - Keep configurations modular and well-documented
             - Follow the existing directory structure
+
+            **CRITICAL:** If the user is requesting a review or re-review of a PR, 
+              - Please provide feedback on:
+                - Code quality and best practices
+                - Potential bugs or issues
+                - Performance considerations
+                - Security concerns
+                - Test coverage
+              - Use inline comments on specific lines when providing feedback about particular code issues.
+              - For general comments or summary feedback, use `gh pr comment` or `gh issue comment` as appropriate. 
 
             ${{
               github.event_name == 'issue_comment' && format('ISSUE TITLE: {0}\n\nISSUE BODY:\n{1}\n\nCOMMENT:\n{2}', github.event.issue.title, github.event.issue.body, github.event.comment.body) ||
@@ -64,7 +74,7 @@ jobs:
             }}
 
           # Allow Claude to use necessary tools for managing this repository
-          claude_args: | 
-            --allowed-tools Bash,Read,Write,Edit,Glob,Grep
+          claude_args: |
+            --allowed-tools "Bash,Read,Write,Edit,Glob,Grep,mcp__github_inline_comment__create_inline_comment,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"
             --model claude-sonnet-4-5-20250929
 
