@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    asitop
     autoconf
     autoconf-archive
     automake
@@ -45,6 +44,7 @@
     lazygit
     lolcat
     neovim
+    macpm
     minikube
     nasm
     netcat
