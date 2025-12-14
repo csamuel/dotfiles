@@ -65,6 +65,7 @@
       "reactotron"
       "rectangle-pro"
       "redis-insight"
+      "rustdesk"
       "setapp"
       "signal"
       "slack"
@@ -98,7 +99,7 @@
       "Keka" = 470158793;
       "MediaInfo" = 510620098;
       "Okta Verify" = 490179405;
-      "Parcel" = 639968404;
+      "Parcel" = 375589283;
       "Photomator" = 1444636541;
       "Pixelmator Pro" = 1289583905;
       "Screens 5" = 1663047912;
