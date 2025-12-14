@@ -7,7 +7,7 @@ lib.mkIf config.profiles.video.enable {
     ];
     casks = [
       "makemkv"
-      "topaz-video-ai"
+      "topaz-video"
     ];
     masApps = {
       "Compressor" = 424390742;
