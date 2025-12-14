@@ -6,6 +6,7 @@ lib.mkIf config.profiles.gaming.enable {
       "crossover"
       "retroarch-metal"
       "shadow"
+      "steam"
       "whisky"
     ];
   };
