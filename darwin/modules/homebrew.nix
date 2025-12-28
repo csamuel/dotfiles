@@ -14,6 +14,7 @@
       "nvm"
       "sst/tap/sst"
       "sst/tap/opencode"
+      "tw93/tap/mole"
     ];
     casks = [
       "1password"
@@ -90,6 +91,7 @@
       "homebrew/test-bot"
       "sst/tap"
       "FelixKratz/formulae"
+      "tw93/tap"
     ];
     masApps = {
       "DaisyDisk" = 411643860;
