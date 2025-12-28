@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
-      - uses: DeterminateSystems/nix-installer-action@v20
+      - uses: DeterminateSystems/nix-installer-action@v21
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Check formatting
         run: nix develop -c treefmt --ci
@@ -29,7 +29,7 @@ jobs:
     needs: lint
     steps:
       - uses: actions/checkout@v5
-      - uses: DeterminateSystems/nix-installer-action@v20
+      - uses: DeterminateSystems/nix-installer-action@v21
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Show flake outputs
         run: nix flake show
@@ -45,7 +45,7 @@ jobs:
         host: [higgins, benson, spaceblack, dunston]
     steps:
       - uses: actions/checkout@v5
-      - uses: DeterminateSystems/nix-installer-action@v20
+      - uses: DeterminateSystems/nix-installer-action@v21
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Evaluate toplevel drv for ${{ matrix.host }}
         run: nix eval --raw .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel.drvPath
@@ -60,7 +60,7 @@ jobs:
         host: [higgins, benson, spaceblack, dunston]
     steps:
       - uses: actions/checkout@v5
-      - uses: DeterminateSystems/nix-installer-action@v20
+      - uses: DeterminateSystems/nix-installer-action@v21
       - uses: DeterminateSystems/magic-nix-cache-action@v13
       - name: Build toplevel for ${{ matrix.host }}
         run: nix build --keep-going --print-build-logs .#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel
