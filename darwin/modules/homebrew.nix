@@ -10,18 +10,16 @@
     };
     brews = [
       "mcp-toolbox"
-      "pulumi"
+      "mole"
       "nvm"
-      "sst/tap/sst"
-      "sst/tap/opencode"
-      "tw93/tap/mole"
+      "opencode"
+      "pulumi"
     ];
     casks = [
       "1password"
       "1password-cli"
       "alcove"
       "affinity-photo"
-      "android-file-transfer"
       "balenaetcher"
       "bartender"
       "betterdisplay"
@@ -33,7 +31,6 @@
       "discord"
       "docker-desktop"
       "dropbox"
-      "elgato-stream-deck"
       "expo-orbit"
       "figma"
       "firefox"
@@ -46,14 +43,9 @@
       "gitkraken-cli"
       "google-chrome"
       "iina"
-      "inkscape"
       "istat-menus"
-      "kiro"
-      "legcord"
       "linear-linear"
-      "lm-studio"
       "miro"
-      "monarch"
       "notion"
       "notion-calendar"
       "ngrok"
@@ -63,10 +55,8 @@
       "pgadmin4"
       "postman"
       "raycast"
-      "reactotron"
       "rectangle-pro"
       "redis-insight"
-      "rustdesk"
       "setapp"
       "signal"
       "slack"
@@ -89,9 +79,7 @@
     taps = [
       "azure/functions"
       "homebrew/test-bot"
-      "sst/tap"
       "FelixKratz/formulae"
-      "tw93/tap"
     ];
     masApps = {
       "DaisyDisk" = 411643860;
