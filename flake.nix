@@ -82,6 +82,11 @@
           user = "chris";
           configs = [ ./darwin/hosts/dunston.nix ];
         };
+        # M4 MacBook Pro Max
+        "mfourmax" = darwinSystem {
+          user = "chris.samuel";
+          configs = [ ./darwin/hosts/mfourmax.nix ];
+        };
       };
 
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
