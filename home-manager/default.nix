@@ -14,6 +14,7 @@
   xdg.enable = true;
 
   xdg.configFile."ghostty/config".source = ./../.config/ghostty/config;
+  xdg.configFile."direnv/direnv.toml".source = ./../.config/direnv/direnv.toml;
   xdg.configFile."zed/settings.json.backup".source = ./../.config/zed/settings.json;
 
   home = {
