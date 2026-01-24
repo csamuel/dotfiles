@@ -22,6 +22,7 @@
     }@inputs:
     let
       darwinSystem =
+        hostname:
         {
           user,
           arch ? "aarch64-darwin",
@@ -34,6 +35,9 @@
             ./darwin/darwin.nix
             home-manager.darwinModules.home-manager
             {
+              networking.hostName = hostname;
+              networking.computerName = hostname;
+              networking.localHostName = hostname;
               home-manager = {
                 backupFileExtension = ".backup";
                 users.${user} = import ./home-manager;
@@ -61,29 +65,29 @@
         };
     in
     {
-      darwinConfigurations = {
+      darwinConfigurations = builtins.mapAttrs darwinSystem {
         # M2 MacBook Air
-        "higgins" = darwinSystem {
+        higgins = {
           user = "chris";
           configs = [ ./darwin/hosts/higgins.nix ];
         };
         # M1 Mac Studio Ultra
-        "benson" = darwinSystem {
+        benson = {
           user = "chris";
           configs = [ ./darwin/hosts/benson.nix ];
         };
         # M4 MacBook Pro
-        "spaceblack" = darwinSystem {
+        spaceblack = {
           user = "chris.samuel";
           configs = [ ./darwin/hosts/spaceblack.nix ];
         };
         # M4 MacBook Air
-        "dunston" = darwinSystem {
+        dunston = {
           user = "chris";
           configs = [ ./darwin/hosts/dunston.nix ];
         };
         # M4 MacBook Pro Max
-        "mfourmax" = darwinSystem {
+        mfourmax = {
           user = "chris.samuel";
           configs = [ ./darwin/hosts/mfourmax.nix ];
         };
