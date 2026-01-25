@@ -9,6 +9,7 @@
   imports = [
     ./git.nix
     ./tmux.nix
+    ./sops.nix
   ];
 
   xdg.enable = true;

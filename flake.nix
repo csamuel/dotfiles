@@ -11,6 +11,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -33,6 +38,7 @@
           system = arch;
           modules = [
             ./darwin/darwin.nix
+            sops-nix.darwinModules.sops
             home-manager.darwinModules.home-manager
             {
               networking.hostName = hostname;
@@ -40,6 +46,7 @@
               networking.localHostName = hostname;
               home-manager = {
                 backupFileExtension = ".backup";
+                sharedModules = [ sops-nix.homeManagerModules.sops ];
                 users.${user} = import ./home-manager;
               };
               users.users.${user}.home = "/Users/${user}";

@@ -9,6 +9,7 @@
     ./modules/defaults.nix
     ./modules/activation.nix
     ./modules/profiles.nix
+    ./modules/sops.nix
     ./audio.nix
     ./gaming.nix
     ./photography.nix
