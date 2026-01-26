@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [higgins, benson, spaceblack, dunston]
+        host: [higgins, benson, spaceblack, dunston, mfourmax]
     steps:
       - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v21
@@ -57,7 +57,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [higgins, benson, spaceblack, dunston]
+        host: [higgins, benson, spaceblack, dunston, mfourmax]
     steps:
       - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v21

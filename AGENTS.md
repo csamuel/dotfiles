@@ -17,7 +17,7 @@
 - **Flake check**: `nix flake check --keep-going --print-build-logs`
 - **Evaluate host config**: `nix eval --raw .#darwinConfigurations.<host>.config.system.build.toplevel.drvPath`
 - **Build host config**: `nix build --keep-going --print-build-logs .#darwinConfigurations.<host>.config.system.build.toplevel`
-- **Apply changes**: `sudo darwin-rebuild switch --flake .#<host>` (hosts: higgins, benson, spaceblack, dunston)
+- **Apply changes**: `sudo darwin-rebuild switch --flake .#<host>` (hosts: higgins, benson, spaceblack, dunston, mfourmax)
 - **Update flake inputs**: `nix flake update` or `nix flake lock --update-input <input>`
 
 ## Testing Workflow
