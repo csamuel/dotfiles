@@ -34,7 +34,6 @@
       "expo-orbit"
       "figma"
       "firefox"
-      "flirc"
       "font-bitstream-vera-sans-mono-nerd-font"
       "font-hack-nerd-font"
       "font-meslo-lg-nerd-font"
