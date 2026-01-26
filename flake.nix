@@ -11,6 +11,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      git-hooks,
       ...
     }@inputs:
     let
@@ -48,13 +53,30 @@
           ]
           ++ configs;
         };
+
+      # Pre-commit hooks configuration
+      preCommitHooksFor =
+        system:
+        git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            treefmt = {
+              enable = true;
+              package = nixpkgs.legacyPackages.${system}.treefmt;
+            };
+            deadnix.enable = true;
+          };
+        };
+
       # Helper to build the same dev shell for any target system
       devShellFor =
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          pre-commit = preCommitHooksFor system;
         in
         pkgs.mkShell {
+          inherit (pre-commit) shellHook;
           packages = with pkgs; [
             treefmt
             nixfmt
@@ -95,9 +117,11 @@
 
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
       devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
+      checks.aarch64-darwin.pre-commit = (preCommitHooksFor "aarch64-darwin");
 
       # For CI lint on linux runners
       devShells.x86_64-linux.default = devShellFor "x86_64-linux";
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      checks.x86_64-linux.pre-commit = (preCommitHooksFor "x86_64-linux");
     };
 }
