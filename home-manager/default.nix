@@ -26,7 +26,7 @@
       nixd
       cloudlens
       cmatrix
-      nixfmt-rfc-style
+      nixfmt
       nil
       tree
     ];
