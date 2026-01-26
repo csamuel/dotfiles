@@ -2,4 +2,6 @@
 
 {
   fonts.packages = lib.mkAfter [ pkgs.nerd-fonts.fira-code ];
+
+  wallpaper = ../../wallpapers/deeptwilight.png;
 }
