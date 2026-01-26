@@ -59,7 +59,7 @@
 [user]
   email = csamuel@gmail.com
   name = Chris Samuel
-  signingkey = 10FFA75D6D24DB15
+  signingkey = 8CB5B0E1278F9552
 [commit]
   gpgsign = true
 [includeIf "gitdir:~/src/bestow/"]
