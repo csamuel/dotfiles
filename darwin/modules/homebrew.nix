@@ -77,7 +77,6 @@
     ];
     taps = [
       "azure/functions"
-      "homebrew/test-bot"
       "FelixKratz/formulae"
     ];
     masApps = {
