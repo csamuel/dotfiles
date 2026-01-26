@@ -7,6 +7,7 @@
     ./modules/fonts.nix
     ./modules/homebrew.nix
     ./modules/defaults.nix
+    ./modules/dock.nix
     ./modules/activation.nix
     ./modules/profiles.nix
     ./modules/wallpaper.nix

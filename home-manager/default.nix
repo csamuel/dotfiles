@@ -46,6 +46,7 @@
 
     zsh = {
       enable = true;
+      dotDir = config.home.homeDirectory;
       plugins = [
         {
           name = "powerlevel10k-config";
