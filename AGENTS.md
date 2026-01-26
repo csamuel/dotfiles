@@ -3,7 +3,7 @@
 ## Project Structure
 - `flake.nix` - Main flake configuration with inputs and outputs
 - `darwin/` - macOS system configurations
-  - `hosts/` - Per-host configurations (higgins, benson, spaceblack, dunston)
+  - `hosts/` - Per-host configurations (higgins, benson, spaceblack, dunston, mfourmax)
   - `modules/` - Reusable Darwin modules
 - `home-manager/` - User environment configurations
 - `.config/` - Application-specific configs (ghostty, git, zed)
@@ -29,7 +29,7 @@ Before applying changes:
 5. Apply if successful: `sudo darwin-rebuild switch --flake .#<host>`
 
 ## Code Style
-- **Language**: Nix using RFC-style formatting (nixfmt-rfc-style)
+- **Language**: Nix using RFC-style formatting (nixfmt)
 - **Formatting**: Use `nixfmt` formatter (configured in treefmt.toml)
 - **Imports**: Group imports in `imports = [ ... ];` blocks at the top of modules
 - **Function signatures**: Use attribute sets with destructuring: `{ pkgs, lib, config, ... }:`
@@ -59,8 +59,8 @@ Before applying changes:
 - **Update flake inputs**: `nix flake update` or `nix flake lock --update-input <input>`
 
 ## Quick Reference
-- **Current hosts**: higgins, benson, spaceblack, dunston
+- **Current hosts**: higgins, benson, spaceblack, dunston, mfourmax
 - **Darwin state version**: 4
 - **Home-manager state version**: "24.05"
-- **Primary formatter**: nixfmt-rfc-style
+- **Primary formatter**: nixfmt
 - **Flake**: Uses `nixpkgs` and `darwin` + `home-manager` as inputs
