@@ -37,7 +37,7 @@ jobs:
         run: nix flake check --keep-going --print-build-logs
 
   eval-hosts:
-    runs-on: macos-15
+    runs-on: macos-26
     needs: flake-check
     strategy:
       fail-fast: false
@@ -52,7 +52,7 @@ jobs:
 
   build-hosts:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: macos-15
+    runs-on: macos-26
     needs: eval-hosts
     strategy:
       fail-fast: false
