@@ -65,7 +65,7 @@
       "syncthing-app"
       "the-unarchiver"
       "tidal"
-      "tigervnc-viewer"
+      "tigervnc"
       "tower"
       "transmission"
       "visual-studio-code"
