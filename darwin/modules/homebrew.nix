@@ -27,6 +27,7 @@
       "claude-code"
       "cleanshot"
       "crystalfetch"
+      "codex"
       "cursor"
       "discord"
       "docker-desktop"
