@@ -62,6 +62,9 @@
             direnv
             git
           ];
+          shellHook = ''
+            git config core.hooksPath hooks
+          '';
         };
     in
     {

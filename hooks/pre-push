@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+echo "Running pre-push lint checks..."
+
+echo "Checking formatting..."
+nix develop -c treefmt --ci
+
+echo "Checking for dead Nix code..."
+nix run nixpkgs#deadnix -- --fail
+
+echo "All checks passed."
