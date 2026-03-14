@@ -16,6 +16,7 @@
   xdg.configFile."ghostty/config".source = ./../.config/ghostty/config;
   xdg.configFile."direnv/direnv.toml".source = ./../.config/direnv/direnv.toml;
   xdg.configFile."zed/settings.json.backup".source = ./../.config/zed/settings.json;
+  xdg.configFile."starship.toml".source = ./../.config/starship.toml;
 
   home = {
     stateVersion = "24.05";
@@ -29,6 +30,7 @@
       nixfmt
       nil
       tree
+      starship
     ];
   };
 
@@ -53,11 +55,6 @@
           src = ./p10k;
           file = "p10k.zsh";
         }
-        {
-          name = "zsh-powerlevel10k";
-          src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
-          file = "powerlevel10k.zsh-theme";
-        }
       ];
       shellAliases = {
         gauth = "gcloud auth login --update-adc --brief";
@@ -73,18 +70,34 @@
           sudo launchctl kickstart -k system/systems.determinate.nix-installer.nix-hook
         '';
       };
-      initContent = lib.mkBefore ''
-        # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-        # Initialization code that may require console input (password prompts, [y/n]
-        # confirmations, etc.) must go above this block; everything else may go below.
-        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        fi
+      initContent = lib.mkMerge [
+        (lib.mkBefore ''
+          # Enable Powerlevel10k instant prompt (skipped when using starship).
+          # Initialization code that may require console input (password prompts, [y/n]
+          # confirmations, etc.) must go above this block; everything else may go below.
+          if [[ ''${PROMPT_THEME:-p10k} == p10k ]]; then
+            if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+              source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+            fi
+          fi
 
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
-        [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-      '';
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+          [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+        '')
+        ''
+          # Load p10k theme only when selected (keeps starship shell clean)
+          if [[ ''${PROMPT_THEME:-p10k} == p10k ]]; then
+            source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+          else
+            eval "$(starship init zsh)"
+          fi
+
+          # Helper functions to switch prompts in the current shell session
+          prompt-starship() { PROMPT_THEME=starship exec zsh; }
+          prompt-p10k() { PROMPT_THEME=p10k exec zsh; }
+        ''
+      ];
 
       oh-my-zsh = {
         enable = true;
