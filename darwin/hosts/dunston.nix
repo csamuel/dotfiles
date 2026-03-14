@@ -8,7 +8,10 @@
     video.enable = true;
   };
 
-  wallpaper = ../../wallpapers/deeptwilight.png;
+  wallpaper = {
+    enable = true;
+    image = ../../wallpapers/deeptwilight.png;
+  };
 
   fonts.packages = lib.mkAfter [ pkgs.nerd-fonts.fira-code ];
 }

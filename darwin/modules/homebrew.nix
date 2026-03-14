@@ -29,6 +29,7 @@
       "crystalfetch"
       "codex"
       "cursor"
+      "desktoppr"
       "discord"
       "docker-desktop"
       "dropbox"
