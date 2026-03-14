@@ -5,6 +5,7 @@
     ./modules/base.nix
     ./modules/packages.nix
     ./modules/fonts.nix
+    ./modules/nerd-fonts.nix
     ./modules/homebrew.nix
     ./modules/defaults.nix
     ./modules/dock.nix
