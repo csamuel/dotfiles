@@ -23,10 +23,9 @@ in
     system.activationScripts.determinateNix.text = ''
       if [ -f /etc/nix/nix.custom.conf ]; then
         tmp="$(mktemp)"
-        grep -v '^trusted-users *=.*$' /etc/nix/nix.custom.conf > "$tmp" || true
+        grep -Ev '^[[:space:]]*trusted-users[[:space:]]*=.*$' /etc/nix/nix.custom.conf > "$tmp" || true
         echo "trusted-users = root ${trustedUsers}" >> "$tmp"
-        cat "$tmp" > /etc/nix/nix.custom.conf
-        rm -f "$tmp"
+        mv "$tmp" /etc/nix/nix.custom.conf
       fi
     '';
   };

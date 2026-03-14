@@ -34,9 +34,16 @@
           user,
           arch ? "aarch64-darwin",
           configs ? [ ],
+          repoRoot ? "/Users/${user}/src/dotfiles",
         }:
         darwin.lib.darwinSystem {
-          specialArgs = { inherit user inputs; };
+          specialArgs = {
+            inherit
+              user
+              inputs
+              repoRoot
+              ;
+          };
           system = arch;
           modules = [
             ./darwin/darwin.nix
@@ -47,6 +54,7 @@
               networking.localHostName = hostname;
               home-manager = {
                 backupFileExtension = ".backup";
+                extraSpecialArgs = { inherit repoRoot; };
                 users.${user} = import ./home-manager;
               };
               users.users.${user}.home = "/Users/${user}";
@@ -118,10 +126,11 @@
       };
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt);
-      devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
+      devShells = nixpkgs.lib.genAttrs systems (system: {
+        default = devShellFor system;
+      });
 
       # For CI lint on linux runners
-      devShells.x86_64-linux.default = devShellFor "x86_64-linux";
       checks = forAllSystems (pkgs: {
         treefmt =
           mkCheck pkgs "treefmt-check"
