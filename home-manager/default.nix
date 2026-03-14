@@ -58,7 +58,8 @@
       ];
       shellAliases = {
         gauth = "gcloud auth login --update-adc --brief";
-        ll = "ls -l";
+        ls = "/bin/ls -G";
+        ll = "ls -lh";
         t = "gittower";
         switch = "sudo darwin-rebuild switch --flake .";
         update = "nix flake update";
