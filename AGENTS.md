@@ -14,7 +14,7 @@
 - **Check formatting (CI)**: `nix develop -c treefmt --ci`
 - **Check for unused Nix code**: `nix run nixpkgs#deadnix -- --fail`
 - **Show flake outputs**: `nix flake show`
-- **Flake check**: `nix flake check --keep-going --print-build-logs`
+- **Primary validation command**: `nix flake check --keep-going --print-build-logs`
 - **Evaluate host config**: `nix eval --raw .#darwinConfigurations.<host>.config.system.build.toplevel.drvPath`
 - **Build host config**: `nix build --keep-going --print-build-logs .#darwinConfigurations.<host>.config.system.build.toplevel`
 - **Apply changes**: `sudo darwin-rebuild switch --flake .#<host>` (hosts: higgins, benson, spaceblack, dunston, mfourmax)
@@ -22,11 +22,13 @@
 
 ## Testing Workflow
 Before applying changes:
-1. Check formatting: `treefmt --ci`
-2. Check for dead code: `nix run nixpkgs#deadnix -- --fail`
-3. Run flake check: `nix flake check --keep-going --print-build-logs`
-4. Build specific host: `nix build .#darwinConfigurations.<host>.config.system.build.toplevel`
-5. Apply if successful: `sudo darwin-rebuild switch --flake .#<host>`
+1. Run the primary validation suite: `nix flake check --keep-going --print-build-logs`
+2. Build the specific host when host changes are involved: `nix build .#darwinConfigurations.<host>.config.system.build.toplevel`
+3. Apply if successful: `sudo darwin-rebuild switch --flake .#<host>`
+
+Use targeted checks when you want faster feedback on a specific issue:
+- `treefmt --ci`
+- `nix run nixpkgs#deadnix -- --fail`
 
 ## Code Style
 - **Language**: Nix using RFC-style formatting (nixfmt)

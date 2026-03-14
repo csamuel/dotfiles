@@ -34,4 +34,15 @@ Install Nix using [Determinate Systems Installer](https://github.com/Determinate
 
 `sudo darwin-rebuild switch --flake .#<host_name>`
 
+## Validate
+
+Run this first for the standard repo checks:
+
+`nix flake check --keep-going --print-build-logs`
+
+Optional targeted checks:
+
+- `treefmt --ci`
+- `nix run nixpkgs#deadnix -- --fail`
+- `nix build .#darwinConfigurations.<host>.config.system.build.toplevel`
 

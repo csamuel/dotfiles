@@ -21,6 +21,13 @@
       ...
     }@inputs:
     let
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
+
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+
       darwinSystem =
         hostname:
         {
@@ -65,6 +72,21 @@
             git config core.hooksPath hooks
           '';
         };
+
+      mkCheck =
+        pkgs: name: nativeBuildInputs: command:
+        pkgs.runCommand name
+          {
+            inherit nativeBuildInputs;
+            src = ./.;
+          }
+          ''
+            cp -r "$src" repo
+            chmod -R +w repo
+            cd repo
+            ${command}
+            touch "$out"
+          '';
     in
     {
       darwinConfigurations = builtins.mapAttrs darwinSystem {
@@ -95,11 +117,25 @@
         };
       };
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+      formatter = forAllSystems (pkgs: pkgs.nixfmt);
       devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
 
       # For CI lint on linux runners
       devShells.x86_64-linux.default = devShellFor "x86_64-linux";
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      checks = forAllSystems (pkgs: {
+        treefmt =
+          mkCheck pkgs "treefmt-check"
+            [
+              pkgs.treefmt
+              pkgs.nixfmt
+            ]
+            ''
+              treefmt --ci
+            '';
+
+        deadnix = mkCheck pkgs "deadnix-check" [ pkgs.deadnix ] ''
+          deadnix --fail .
+        '';
+      });
     };
 }
