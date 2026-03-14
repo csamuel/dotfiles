@@ -29,7 +29,6 @@
       cloudlens
       cmatrix
       nixfmt
-      nil
       tree
       starship
     ];
