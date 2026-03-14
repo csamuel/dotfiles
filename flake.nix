@@ -43,7 +43,6 @@
                 users.${user} = import ./home-manager;
               };
               users.users.${user}.home = "/Users/${user}";
-              nix.settings.trusted-users = [ user ];
             }
           ]
           ++ configs;

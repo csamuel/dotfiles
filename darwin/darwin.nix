@@ -9,6 +9,7 @@
     ./modules/defaults.nix
     ./modules/dock.nix
     ./modules/activation.nix
+    ./modules/determinate-nix.nix
     ./modules/profiles.nix
     ./modules/wallpaper.nix
     ./audio.nix
