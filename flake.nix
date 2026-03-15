@@ -130,7 +130,6 @@
         default = devShellFor system;
       });
 
-      # For CI lint on linux runners
       checks = forAllSystems (pkgs: {
         treefmt =
           mkCheck pkgs "treefmt-check"
