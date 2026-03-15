@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   system.defaults = {
@@ -37,7 +37,7 @@
       # Current Folder
       FXDefaultSearchScope = "SCcf";
       NewWindowTarget = "Other";
-      NewWindowTargetPath = "file://${builtins.getEnv "HOME"}";
+      NewWindowTargetPath = "file://${config.users.users.${config.system.primaryUser}.home}";
     };
 
     dock = {

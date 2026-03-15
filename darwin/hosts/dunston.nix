@@ -1,12 +1,13 @@
-{ pkgs, lib, ... }:
+{ ... }:
 
 {
-  profiles = {
-    audio.enable = true;
-    gaming.enable = true;
-    photography.enable = true;
-    video.enable = true;
-  };
+  imports = [
+    ./shared/media.nix
+    ./shared/gaming.nix
+  ];
 
-  fonts.packages = lib.mkAfter [ pkgs.nerd-fonts.fira-code ];
+  wallpaper = {
+    enable = true;
+    image = ../../wallpapers/deeptwilight.png;
+  };
 }
