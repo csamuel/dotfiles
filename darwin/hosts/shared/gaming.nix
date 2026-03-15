@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  profiles.gaming.enable = true;
+}

@@ -8,6 +8,7 @@
 
   # Since we are using determinate nix distribution
   nix.enable = false;
+  determinateNix.enable = true;
 
   programs = {
     gnupg.agent.enable = true;

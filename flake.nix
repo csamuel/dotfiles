@@ -21,15 +21,29 @@
       ...
     }@inputs:
     let
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
+
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+
       darwinSystem =
         hostname:
         {
           user,
           arch ? "aarch64-darwin",
           configs ? [ ],
+          repoRoot ? "/Users/${user}/src/dotfiles",
         }:
         darwin.lib.darwinSystem {
-          specialArgs = { inherit user inputs; };
+          specialArgs = {
+            inherit
+              user
+              inputs
+              repoRoot
+              ;
+          };
           system = arch;
           modules = [
             ./darwin/darwin.nix
@@ -40,10 +54,10 @@
               networking.localHostName = hostname;
               home-manager = {
                 backupFileExtension = ".backup";
+                extraSpecialArgs = { inherit repoRoot; };
                 users.${user} = import ./home-manager;
               };
               users.users.${user}.home = "/Users/${user}";
-              nix.settings.trusted-users = [ user ];
             }
           ]
           ++ configs;
@@ -66,6 +80,21 @@
             git config core.hooksPath hooks
           '';
         };
+
+      mkCheck =
+        pkgs: name: nativeBuildInputs: command:
+        pkgs.runCommand name
+          {
+            inherit nativeBuildInputs;
+            src = ./.;
+          }
+          ''
+            cp -r "$src" repo
+            chmod -R +w repo
+            cd repo
+            ${command}
+            touch "$out"
+          '';
     in
     {
       darwinConfigurations = builtins.mapAttrs darwinSystem {
@@ -96,11 +125,25 @@
         };
       };
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
-      devShells.aarch64-darwin.default = devShellFor "aarch64-darwin";
+      formatter = forAllSystems (pkgs: pkgs.nixfmt);
+      devShells = nixpkgs.lib.genAttrs systems (system: {
+        default = devShellFor system;
+      });
 
-      # For CI lint on linux runners
-      devShells.x86_64-linux.default = devShellFor "x86_64-linux";
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      checks = forAllSystems (pkgs: {
+        treefmt =
+          mkCheck pkgs "treefmt-check"
+            [
+              pkgs.treefmt
+              pkgs.nixfmt
+            ]
+            ''
+              treefmt --ci
+            '';
+
+        deadnix = mkCheck pkgs "deadnix-check" [ pkgs.deadnix ] ''
+          deadnix --fail .
+        '';
+      });
     };
 }
