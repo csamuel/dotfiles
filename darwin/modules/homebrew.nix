@@ -43,7 +43,7 @@
       "google-chrome"
       "iina"
       "istat-menus"
-      "linear-linear"
+      "linear"
       "miro"
       "notion"
       "notion-calendar"
