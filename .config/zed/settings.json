@@ -1,4 +1,17 @@
 {
+  "base_keymap": "VSCode",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "context_servers": {
     "mcp-server-github": {
       "source": "extension",
@@ -8,6 +21,7 @@
   },
   "icon_theme": "VSCode Icons for Zed (Dark Official Icons)",
   "agent": {
+    "dock": "right",
     "inline_assistant_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4-latest"
@@ -28,7 +42,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Tokyo Night Storm"
+    "dark": "One Dark"
   },
   "agent_servers": {
     "OpenCode": {
