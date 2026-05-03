@@ -14,6 +14,7 @@
       "nvm"
       "opencode"
       "pulumi"
+      "amp-labs/cli/cli"
     ];
     casks = [
       "1password"
@@ -75,6 +76,7 @@
       "zoom"
     ];
     taps = [
+      "amp-labs/cli"
       "azure/functions"
       "FelixKratz/formulae"
     ];
