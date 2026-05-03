@@ -24,7 +24,7 @@
       "bartender"
       "betterdisplay"
       "bitwarden"
-      "claude-code"
+      "claude-code@latest"
       "cleanshot"
       "crystalfetch"
       "codex"
