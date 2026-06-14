@@ -11,7 +11,6 @@ lib.mkIf config.profiles.gaming.enable {
       "shadow"
       "sony-ps-remote-play"
       "steam"
-      "streetpea/streetpea/chiaki-ng"
     ];
   };
 }
