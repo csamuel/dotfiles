@@ -14,6 +14,7 @@
     ./modules/profiles.nix
     ./modules/wallpaper.nix
     ./audio.nix
+    ./game-dev.nix
     ./gaming.nix
     ./photography.nix
     ./video.nix
