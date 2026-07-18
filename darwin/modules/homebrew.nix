@@ -13,7 +13,9 @@
       "mole"
       "nvm"
       "opencode"
+      "pi-coding-agent"
       "pulumi"
+      "yt-dlp"
     ];
     casks = [
       "1password"
