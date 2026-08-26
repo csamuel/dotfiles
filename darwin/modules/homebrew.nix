@@ -3,6 +3,7 @@
 {
   homebrew = {
     enable = true;
+    enableZshIntegration = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
@@ -22,6 +23,9 @@
       "1password-cli"
       "alcove"
       "affinity-photo"
+      # Must stay fully qualified: nix-darwin emits `trusted: true` for every
+      # cask, but Homebrew ignores it unless the name carries its tap prefix.
+      "anthropics/tap/ant"
       "balenaetcher"
       "bartender"
       "betterdisplay"
@@ -39,18 +43,19 @@
       "figma"
       "firefox"
       "ghostty"
+      "github"
       "gitkraken"
       "gitkraken-cli"
       "google-chrome"
       "iina"
       "istat-menus"
+      "jdownloader"
       "linear"
       "miro"
       "notion"
       "notion-calendar"
       "ngrok"
       "onyx"
-      "orbstack"
       "orion"
       "pgadmin4"
       "postman"
@@ -77,6 +82,7 @@
       "zoom"
     ];
     taps = [
+      "anthropics/tap"
       "azure/functions"
       "FelixKratz/formulae"
     ];
