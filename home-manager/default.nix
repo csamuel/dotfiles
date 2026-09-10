@@ -26,6 +26,8 @@
   home = {
     stateVersion = "24.05";
 
+    sessionVariables.PNPM_HOME = "${config.home.homeDirectory}/Library/pnpm/global";
+
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = with pkgs; [
@@ -41,6 +43,7 @@
   # Append to PATH in generated hm-session-vars
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
+    config.home.sessionVariables.PNPM_HOME
   ];
 
   programs = {
