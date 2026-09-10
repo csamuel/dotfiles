@@ -17,15 +17,14 @@
       "pi-coding-agent"
       "pulumi"
       "yt-dlp"
+      # taps
+      "anomalyco/tap/opencode"
     ];
     casks = [
       "1password"
       "1password-cli"
       "alcove"
       "affinity-photo"
-      # Must stay fully qualified: nix-darwin emits `trusted: true` for every
-      # cask, but Homebrew ignores it unless the name carries its tap prefix.
-      "anthropics/tap/ant"
       "balenaetcher"
       "bartender"
       "betterdisplay"
@@ -80,6 +79,9 @@
       "xrg"
       "zed"
       "zoom"
+      ## taps
+      "anthropics/tap/ant"
+      "crmne/tap/fastpotify"
     ];
     taps = [
       "anthropics/tap"
