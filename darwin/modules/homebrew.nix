@@ -42,7 +42,7 @@
       "expo-orbit"
       "figma"
       "firefox"
-      "ghostty"
+      "ghostty@tip"
       "github"
       "gitkraken"
       "gitkraken-cli"
